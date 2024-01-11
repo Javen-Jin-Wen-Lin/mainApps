@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>App Center</title>
+    <style>
+        body {
+            background-color: #3498db;
+        }
+        h1 {
+            color: #9b59b6; 
+        }
+        .flex-container {
+            display: flex;
+        }
+        .flex-container div {
+            text-align:center;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(67, 249, 188);
+            color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100px;
+            flex: 1 1 0%;
+        }
+        .flex-container .two {
+            flex: 2 1 0%;
+        }
+        div:hover {
+            background-color: rgb(167, 255, 227);
+        }
+    </style>
+</head>
+<body>
+    <h1 id='header' style="text-align:center">App Center</h1>
+    <div class="flex-container">
+        <!--<div class="two"></div> -->
+        <div class="one">
+            <a href='./apps/RockPaperScissors.html'></a>
+            <span> Rock, Paper, Scissors </span>
+        </div>
+        <!-- <div class="two"></div> -->
+    </div>
+</body>
+</html>
