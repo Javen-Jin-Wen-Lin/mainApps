@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        main {
+            background-color: #3498db;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #9b59b6;
+        }
+
+        .flex-container {
+            display: flex;
+            text-align: center;
+            margin-top: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+            flex-direction: column;
+            padding: 10px 10px;
+            border-radius: 10px;
+            align-items: center;
+        }
+
+        .flex-container .button-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center items vertically */
+            padding: 10px 10px;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link span {
+            color: white;
+            font-size: 30px;
+        }
+
+        .button-link:hover {
+            background-color: rgb(71, 109, 109);
+        }
+
+        .flex-container .two {
+            flex: 2 1 0%;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1 id='header' style="text-align:center">Calculator</h1>
+        <div class="flex-container" style="width: 300px; height: 440px; background-color: gray; margin-top: 20px;">
+            <div class="flex-container">
+                <div class="flex-container" style="width: 260px; height: 50px; background-color: greenyellow; margin-top: 0px; color: green;">
+                    <div class="button-link" id="outcome" style="font-size: 30px;">
+                    </div> 
+                </div>
+            </div>
+            <div class="flex-container" style="flex-direction: row;">
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="plus">
+                        <span>+</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="minus">
+                        <span>-</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="times">
+                        <span>*</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="divide">
+                        <span>/</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="flex-container" style="flex-direction: row;">
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="1">
+                        <span>1</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="2">
+                        <span>2</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="3">
+                        <span>3</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="performCalculation();" id="enter">
+                        <span style="font-size: 15px;">Enter</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="flex-container" style="flex-direction: row;">
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="4">
+                        <span>4</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="5">
+                        <span>5</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="6">
+                        <span>6</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="leftBracket">
+                        <span>(</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="flex-container" style="flex-direction: row;">
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="7">
+                        <span>7</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="8">
+                        <span>8</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="9">
+                        <span>9</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="rightBracket">
+                        <span>)</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="flex-container" style="flex-direction: row;">
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="decimal">
+                        <span>.</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeNum(this);" id="0">
+                        <span>0</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="changeSymbol(this);" id="modulus">
+                        <span>%</span>
+                    </div> 
+                </div>
+                <div class="flex-container" style="width: 30px; height: 30px; background-color: darkslategray;">
+                    <div class="button-link" onclick="performClear();" id="clear">
+                        <span style="font-size: 15px;">Clear</span>
+                    </div> 
+                </div>
+            </div> 
+        </div>
+        <div class="flex-container">
+            <a href="../mainapps.html" class="button-link" style="height:auto">
+                <span>Return to App Center</span>
+            </a>
+        </div>
+    </main>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.0/math.min.js"></script>
+<script>
+    var operatorbool = false;
+    var currentExpression = '';
+
+    function changeSymbol(curSymbol) {
+        var symbolChar = '';
+        var symbol = curSymbol.id;
+        switch (symbol) {
+            case 'plus':
+                symbolChar = '+';
+                operatorbool = true;
+                break;
+            case 'minus':
+                symbolChar = '-';
+                operatorbool = true;
+                break;
+            case 'times':
+                symbolChar = '*';
+                operatorbool = true;
+                break;
+            case 'divide':
+                symbolChar = '/';
+                operatorbool = true;
+                break;
+            case 'modulus':
+                symbolChar = '%';
+                operatorbool = true;
+                break;
+            case 'leftBracket':
+                symbolChar = '(';
+                operatorbool = true;
+                break;
+            case 'rightBracket':
+                symbolChar = ')';
+                operatorbool = true;
+                break;
+            case 'decimal':
+                symbolChar = '.';
+                operatorbool = true;
+                break;
+        }
+        if (operatorbool == true) {
+            currentExpression = currentExpression.slice(0,-1);
+        }
+        currentExpression += symbolChar;
+        document.getElementById('outcome').innerText = currentExpression;
+    }
+
+    function changeNum(curNum) {
+        currentExpression = currentExpression.replace(/\s/g, '');
+        currentExpression += (curNum.id+" ");
+        operatorbool = false;
+        document.getElementById('outcome').innerText = currentExpression;
+    }
+
+    function performClear() {
+        currentExpression = '';
+        document.getElementById('outcome').innerText = currentExpression;
+    }
+
+    function performCalculation() {
+        currentExpression = currentExpression.replace(/\s/g, '');
+        try {
+            var result = math.evaluate(currentExpression);
+            document.getElementById('outcome').innerText = result.toFixed(2);
+            currentExpression = '';
+        } catch (error) {
+            document.getElementById('outcome').innerText = 'Error';
+            currentExpression = ''; // Clear the expression in case of an error
+        }
+    }
+</script>
+</html>
