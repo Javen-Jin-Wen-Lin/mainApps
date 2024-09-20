@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        main {
+            background-color: #3498db;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #9b59b6;
+        }
+
+        .flex-container {
+            display: flex;
+            text-align: center;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .flex-container .button-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center items vertically */
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: rgb(67, 249, 188);
+            color: #db7134;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100px;
+            height: 130px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link img {
+            margin-top: auto;
+            /* Align image to the top */
+            max-height: 80px;
+            /* Adjust the maximum height of the image */
+            max-width: 100px;
+            /* Adjust the maximum width of the image */
+        }
+
+        .button-link span {
+            margin-top: auto;
+            /* Align text to the bottom */
+        }
+
+        .flex-container .two {
+            flex: 2 1 0%;
+        }
+
+        .flex-container .image-link {
+            margin: 0 10px;
+        }
+
+        .button-link:hover {
+            background-color: rgb(167, 255, 227);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 id='header' style="text-align:center">Rock, Paper, Scissors</h1>
+
+        <div class="flex-container">
+            <div class="image-link">
+                <a class="button-link"><img id="displayedImage"><span>User</span></a>
+            </div>
+            <div class="image-link">
+                <a class="button-link"><img id="comDisplayedImage"><span>Computer</span></a>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div id="score"></div>
+        </div>
+        
+        <div class="flex-container">
+            <div id="outcome"></div>
+        </div>
+
+        <div class="flex-container">
+            <div class="image-link">
+                <a class="button-link" onclick="changeImage('../images/rock.png'); comGen(); match();">
+                    <img id="image1" src='../images/rock.png'><span>Rock</span>
+                </a>
+            </div>
+            <div class="image-link">
+                <a class="button-link" onclick="changeImage('../images/paper.png'); comGen(); match();">
+                    <img id="image2" src='../images/paper.png'><span>Paper</span>
+                </a>
+            </div>
+            <div class="image-link">
+                <a class="button-link" onclick="changeImage('../images/scissor.png'); comGen(); match();">
+                    <img id="image3" src='../images/scissor.png'><span>Scissor</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <a href="../mainapps.html" class="button-link" style="height:auto">
+                <span>Return to App Center</span>
+            </a>
+        </div>
+
+        <script>
+            var userScore = 0;
+            var comScore = 0;
+            var userChoice = 0;
+            var comChoice = 0;
+
+            function changeImage(newImagePath) {
+                // Change the source of the displayed image
+                document.getElementById('displayedImage').src = newImagePath;
+
+                if (newImagePath == '../images/rock.png') {
+                    userChoice = 1;
+                } else if (newImagePath == '../images/paper.png') {
+                    userChoice = 2;
+                } else if (newImagePath == '../images/scissor.png') {
+                    userChoice = 3;
+                }
+            }
+            function comGen() {
+                var responses = ['../images/rock.png', '../images/paper.png', '../images/scissor.png'];
+                var randomIndex = Math.floor(Math.random() * responses.length);
+                newImagePath = responses[randomIndex];
+                document.getElementById('comDisplayedImage').src = newImagePath;
+                if (newImagePath == '../images/rock.png') {
+                    comChoice = 1;
+                } else if (newImagePath == '../images/paper.png') {
+                    comChoice = 2;
+                } else if (newImagePath == '../images/scissor.png') {
+                    comChoice = 3;
+                }
+            }
+            function match() {
+                
+                var result ='';
+                switch (userChoice) {
+                case 1:
+                    switch (comChoice) {
+                        case 1:
+                            result = 'tie'
+                            break;
+                        case 2:
+                            comScore++;
+                            result = 'defeat'
+                            break;
+                        case 3:
+                            userScore++;
+                            result = 'victory'
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (comChoice) {
+                        case 1:
+                            userScore++;
+                            result = 'victory'
+                            break;
+                        case 2:
+                            result = 'tie'
+                            break;
+                        case 3:
+                            comScore++;
+                            result = 'defeat'
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (comChoice) {
+                        case 1:
+                            comScore++;
+                            result = 'defeat'
+                            break;
+                        case 2:
+                            userScore++;
+                            result = 'victory'
+                            break;
+                        case 3:
+                            result = 'tie'
+                            break;
+                    }
+                    break;
+                }
+                resultScore = `User: ${userScore}, Computer: ${comScore}`;
+                document.getElementById('score').innerText = resultScore;
+                document.getElementById('outcome').innerText = result;
+            }
+        </script>
+    </main>
+</body>
+
+</html>
