@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Center</title>
+    <style>
+        body {
+            background-color: #3498db;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #9b59b6; 
+        }
+        .flex-container {
+            display: flex;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .flex-container .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: rgb(67, 249, 188);
+            color: #db7134;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100px;
+            flex: 1 1 0%;
+            transition: background-color 0.3s ease;
+        }
+        .button-link img {
+            margin-top: auto;
+            /* Align image to the top */
+            max-height: 80px;
+            /* Adjust the maximum height of the image */
+            max-width: 100px;
+            /* Adjust the maximum width of the image */
+        }
+        .button-link span {
+            margin-top: auto;
+            /* Align text to the bottom */
+        }
+        .flex-container .image-link {
+            margin: 0 10px;
+        }
+        .flex-container .two {
+            flex: 2 1 0%;
+        }
+        .button-link:hover {
+            background-color: rgb(167, 255, 227);
+        }
+    </style>
+</head>
+<body>
+    <h1 id='header' style="text-align:center">App Center</h1>
+    <div class="flex-container">
+        <div class="image-link">
+            <a href='./apps/RockPaperScissors.html' class="button-link">
+                <img src='../images/loadRPS.png'><span>Rock, Paper, Scissors</span>
+            </a>
+        </div>
+        <div class="image-link">
+            <a href='./apps/EtchASketch.html' class="button-link">
+                <img src='../images/loadEAS.png'><span>Etch A Sketch</span>
+            </a>
+        </div>
+        <div class="image-link">
+            <a href='./apps/Calculator.html' class="button-link">
+                <img src='../images/loadCalc.png'><span>Calculator</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
